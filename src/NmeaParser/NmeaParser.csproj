@@ -1,11 +1,11 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.4;netcoreapp2.1;net451;monoandroid50;monoandroid70;xamarinios10;uap10.0.16299</TargetFrameworks>
+    <TargetFrameworks>net451;netstandard1.4;netcoreapp2.1;uap10.0.16299</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Configurations>Debug;Release</Configurations>
-    <Platforms>AnyCPU</Platforms>
+    <Platforms>x64</Platforms>
     <Authors>Morten Nielsen</Authors>
     <Company>Morten Nielsen</Company>
     <Description>An NMEA stream parser for serial port, bluetooth and file-based nmea simulation.</Description>
@@ -40,24 +40,6 @@
     <DefineConstants>$(DefineConstants);NETFX</DefineConstants>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)' == 'monoandroid50'">
-    <DesignTimeBuild>false</DesignTimeBuild> <!-- workaround for MSBuildSdkExtras issue in VS16.2 -->
-    <DefineConstants>$(DefineConstants);XAMARIN;API_LEVEL_21</DefineConstants>
-    <NoWarn>$(NoWarn);XA0113;XA0114</NoWarn>
-    <AndroidEnableGooglePlayStoreChecks>false</AndroidEnableGooglePlayStoreChecks>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)' == 'monoandroid70'">
-    <DesignTimeBuild>false</DesignTimeBuild> <!-- workaround for MSBuildSdkExtras issue in VS16.2 -->
-    <DefineConstants>$(DefineConstants);XAMARIN;API_LEVEL_24</DefineConstants>
-    <NoWarn>$(NoWarn);XA0113;XA0114</NoWarn>
-    <AndroidEnableGooglePlayStoreChecks>false</AndroidEnableGooglePlayStoreChecks>
-  </PropertyGroup>
-  
-  <PropertyGroup Condition="'$(TargetFramework)' == 'xamarinios10'">
-    <DefineConstants>$(DefineConstants);XAMARIN</DefineConstants>
-    <NoWarn>$(NoWarn);VSX1000</NoWarn>
-  </PropertyGroup>
-  
   <PropertyGroup Condition="'$(TargetFramework)' == 'uap10.0.16299'">
   </PropertyGroup>
   
